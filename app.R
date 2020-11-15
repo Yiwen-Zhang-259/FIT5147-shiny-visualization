@@ -1,22 +1,26 @@
 library(tidyverse)
-library(ggplot2)
 library(plotly)
 library(shiny)
 library(shinydashboard)
 library(ggplot2) # visualisation
 library(scales) # visualisation
 library(grid) # visualisation
+library(corrplot) # visualisation
+library(alluvial) # visualisation
 library(dplyr) # data manipulation
 library(readr) # input/output
+library(data.table) # data manipulation
 library(tibble) # data wrangling
 library(tidyr) # data wrangling
 library(stringr) # string manipulation
 library(forcats) # factor manipulation
 library(lubridate) # date and time
+library(geosphere) # geospatial locations
 library(leaflet) # maps
-library(ggplot2)
-library(tidyverse)
+library(maps) # maps
+library(bookdown)
 library(shinythemes)
+library(bookdown)
 Sys.setlocale("LC_ALL","C")
 
 
@@ -88,10 +92,6 @@ header <- dashboardHeader(title = "Taxi Duration Analysis of NYC",
                           
                          dropdownMenu(type = "notifications",
                                       notificationItem(
-                                         text = "7 new users today",
-                                         icon = icon("users")
-                                       ),
-                                      notificationItem(
                                          text = "330 24-hour trips recorded",
                                          icon = icon("taxi"),
                                          status = "success"
@@ -112,12 +112,9 @@ sidebar <- dashboardSidebar(
     menuItem("Box plot", icon = icon("th-large"), tabName = "boxplot"),
     menuItem("Heat diagram", icon = icon("cubes"), tabName = "heatplot"),
     menuItem("About", icon = icon("accusoft"), tabName = "about"),
-    menuItem("Instruction", icon = icon("lightbulb"), tabName = "instruction"),
     menuItem("Source code", icon = icon("file-code-o"), 
              href = "https://github.com/Yiwen-Zhang-259/FIT5147-shiny-visualization"
-    ),
-    sidebarSearchForm(textId = "searchText", buttonId = "searchButton",
-                      label = "Search...")
+    )
   )
 )
 
@@ -134,7 +131,7 @@ body <- dashboardBody(
       '))),
   tabItems(
     tabItem(tabName = "dashboard",
-            h2("Some interesting factors!"),
+            h2("How is Taxi Duration influenced by factors?"),
             fluidRow(
               # tatic valueBox
               valueBox("15.98 mins", "Average Duration", icon = icon("stopwatch")),
@@ -156,12 +153,12 @@ body <- dashboardBody(
                 tags$br(),
                  "There are two providers associated with the trip record, one is represented with vendor id '1', and another is vendor id '2'.",
                 tags$br(),
-                 "When you mouse over the purplr point, it will show which provider the record of the trip is from.",
+                 "When you mouse over the purple point, it will show which provider the record of the trip is from.",
                 tags$br(),
                  "Hope you can enjoy your exploration in this APP",
                 style = 'font-size:17px',
                 side = "right",
-                #width = 12
+                
               )
             )
             
@@ -229,15 +226,14 @@ body <- dashboardBody(
               "And taxi trip from vendor 2 is higher than that of vendor 1.",
               style = 'font-size:17px',
               width = 12,
-              # style = "padding: 15px"
+              
             )
             )
     ),
     tabItem(tabName = "boxplot",
             h2("Median Duration vs Passenger Count"),
             fluidRow( 
-              #box(
-                #width = 8,
+                
                 column(
                   selectizeInput("passengerInput", "Passenger Count",
                                  choices = unique(train$passenger_count),
@@ -250,7 +246,7 @@ body <- dashboardBody(
                 ),
               column(
                 h4(strong("Brief Explanation"), style = 'font-size:20px'),
-                "The box chart shows the average taxi duration under two vendors with different passenger counts.",
+                "The box chart shows the taxi duration under two vendors with different passenger counts.",
                 tags$br(),
                 "Users can manually select the number of passengers she or he is interested. By default, the passenger count '1' is chosen in the plots.",
                 tags$br(),
@@ -260,7 +256,7 @@ body <- dashboardBody(
                 "Specially,long distance trips over 24 hours exist in vendor 1, while those with more than 7 passengers only exist in vendor 2.",
                 style = 'font-size:17px',
                 width = 12
-                # style = "padding: 15px"
+                
               )
              
             )
@@ -273,14 +269,11 @@ body <- dashboardBody(
               box(
                 title = "Speed throughout the Day and Time",
                 plotlyOutput("heat"),
-                #height = 3,
               ),
                 box(
                   title = "Correlation between Speed and Duration",
                   plotlyOutput("model"),
                   checkboxInput("modelInput", label = "Point Plot", value = FALSE)
-        
-                  #style = "float: right; padding: 10px; margin-right: 50px"
                 )
               
               ),
@@ -290,7 +283,7 @@ body <- dashboardBody(
                 tags$br(),
                 "The regression curve shows how the speed influence the duration.",
                 tags$br(),
-                "Users can manually click the button beside the right-side graph to view the point plot.",
+                "Users can manually click the button beneath the right-side graph to view the point plot.",
                 tags$br(),
                 tags$br(),
                 "It can be observed that taxi travels faster on weekends and early morning.",
@@ -311,7 +304,7 @@ body <- dashboardBody(
                   box(
                     title = div("About this Shiny App", style = "padding-left: 25px", class = "h2"),
                     column(
-                      "This shiny app is about the analysis on taxi duration in New York City, and provides an overview of the taxi trip disbution in this city.
+                      "This shiny app is about the analysis on taxi duration in New York City, and provides an overview of the taxi trip distribution in this city.
                        The 'shiny' package could display the interesting findings from previous analysis, which provide an concise way to build interactive web-based apps straight from R.
                        The code behind the dashboard available ",
                       tags$a(href = "https://github.com/Yiwen-Zhang-259/FIT5147-shiny-visualization", "here"),".
@@ -337,6 +330,9 @@ body <- dashboardBody(
                       "Yiwen Zhang | Master of Business Analystics student in Monash University @",
                       tags$a(href = "https://github.com/Yiwen-Zhang-259/FIT5147-shiny-visualization", "Yiwen Zhang's Github"),
                       h3("References"),
+                      "Bojanowski M, Edwards R (2016). _alluvial: R Package for Creating Alluvial Diagrams_. R package version: 0.1-2, <URL: https://github.com/mbojan/alluvial>.",
+                      tags$br(),
+                      tags$br(),
                       "Chang, Winston, and Barbara Borges Ribeiro. 2018. Shinydashboard: Create Dashboards with ’Shiny’. https://CRAN.R-project.org/package=shinydashboard.",
                       tags$br(),
                       tags$br(),
@@ -349,10 +345,37 @@ body <- dashboardBody(
                       "Chang, W. (2018, November 06). Themes for Shiny [R package shinythemes version 1.1.2]. Retrieved from https://CRAN.R-project.org/package=shinythemes.",
                       tags$br(),
                       tags$br(),
+                      "Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL http://www.jstatsoft.org/v40/i03/.",
+                      tags$br(),
+                      tags$br(),
+                      "Hadley Wickham (2019). stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.4.0. https://CRAN.R-project.org/package=stringr.",
+                      tags$br(),
+                      tags$br(),
+                      "Hadley Wickham (2020). forcats: Tools for Working with Categorical Variables (Factors). R package version 0.5.0. https://CRAN.R-project.org/package=forcats.",
+                      tags$br(),
+                      tags$br(),
+                      "Matt Dowle and Arun Srinivasan (2020). data.table: Extension of `data.frame`. R package version 1.13.2. https://CRAN.R-project.org/package=data.table.",
+                      tags$br(),
+                      tags$br(),
+                      "Original S code by Richard A. Becker, Allan R. Wilks. R version by Ray Brownrigg. Enhancements by Thomas P Minka and Alex Deckmyn. (2018). maps: Draw Geographical Maps. R package version 3.3.0. https://CRAN.R-project.org/package=maps.",
+                      tags$br(),
+                      tags$br(),
+                      "Kirill M<U+00FC>ller and Hadley Wickham (2020). tibble: Simple Data Frames. R package version 3.0.4. https://CRAN.R-project.org/package=tibble.",
+                      tags$br(),
+                      tags$br(),
+                      "R Core Team (2020). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.URL https://www.R-project.org/.",
+                      tags$br(),
+                      tags$br(),
+                      "Robert J. Hijmans (2019). geosphere: Spherical Trigonometry. R package version 1.5-10. https://CRAN.R-project.org/package=geosphere.",
+                      tags$br(),
+                      tags$br(),
                       "Sievert, Carson. 2020. Interactive Web-Based Data Visualization with R, Plotly, and Shiny. Chapman; Hall/CRC. https://plotly-r.com.",
                       tags$br(),
                       tags$br(),
-                      " R Core Team (2020). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.URL https://www.R-project.org/. ",
+                      "Taiyun Wei and Viliam Simko (2017). R package 'corrplot':Visualization of a Correlation Matrix (Version 0.84). Available from https://github.com/taiyun/corrplot.",
+                      tags$br(),
+                      tags$br(),
+                      "TLC Trip Record Data. (n.d.). Retrieved from https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page.",
                       tags$br(),
                       tags$br(),
                       "Wickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org.",
@@ -365,19 +388,7 @@ body <- dashboardBody(
                       tags$br(),
                       tags$br(),
                       "Wickham, Hadley, and Dana Seidel. 2020. Scales: Scale Functions for Visualization. https://CRAN.R-project.org/package=scales.",
-                      tags$br(),
-                      tags$br(),
-                      "Kirill M<U+00FC>ller and Hadley Wickham (2020). tibble: Simple Data Frames. R package version 3.0.4. https://CRAN.R-project.org/package=tibble.",
-                      tags$br(),
-                      tags$br(),
-                      "Hadley Wickham (2019). stringr: Simple, Consistent Wrappers for Common String Operations. R package version 1.4.0. https://CRAN.R-project.org/package=stringr.",
-                      tags$br(),
-                      tags$br(),
-                      "Hadley Wickham (2020). forcats: Tools for Working with Categorical Variables (Factors). R package version 0.5.0. https://CRAN.R-project.org/package=forcats.",
-                      tags$br(),
-                      tags$br(),
-                      " Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL http://www.jstatsoft.org/v40/i03/.",
-                      width = 12,
+                    width = 12,
                       style = "padding-left: 20px; padding-right: 20px; padding-bottom: 40px; margin-top: -15px"
                     ),
                     width = 12,
@@ -386,9 +397,7 @@ body <- dashboardBody(
                   style = "padding: 20px"
                 )
               )
-            )),
-    
-    tabItem(tabName = "instruction")
+            ))
   
   )
 
@@ -397,7 +406,7 @@ body <- dashboardBody(
 ui <- dashboardPage(header, sidebar, body,skin = "black")
 
 
-#define the server interface
+#define the server function
 server <- function(input, output) {
   
   output$messageMenu <- renderMenu({
@@ -407,8 +416,6 @@ server <- function(input, output) {
       messageItem(from = row[["from"]], message = row[["message"]])
     })
     
-    # This is equivalent to calling:
-    #   dropdownMenu(type="messages", msgs[[1]], msgs[[2]], ...)
     dropdownMenu(type = "messages", .list = msgs)
   })
   
