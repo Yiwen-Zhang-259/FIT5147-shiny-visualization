@@ -87,21 +87,21 @@ You can click the link to access to the data source or go to the creator’s Git
 
 ## Reference
 
-  - \[alluvial\]<https://github.com/mbojan/alluvial>
-  - \[shinydashboard\]<https://CRAN.R-project.org/package=shinydashboard>
-  - \[shiny\]<https://CRAN.R-project.org/package=shiny>
-  - \[shinythemes\]<https://CRAN.R-project.org/package=shinythemes>
-  - \[leaflet\]<http://www.jstatsoft.org/v40/i03/>
-  - \[stringr\]<https://CRAN.R-project.org/package=stringr>
-  - \[forcats\]<https://CRAN.R-project.org/package=forcats>
-  - \[data.table\]<https://CRAN.R-project.org/package=data.table>
-  - \[maps\]<https://CRAN.R-project.org/package=maps>
-  - \[tibble\]<https://CRAN.R-project.org/package=tibble>
-  - \[geosphere\]<https://CRAN.R-project.org/package=geosphere>
-  - \[plotly\]<https://plotly-r.com>
-  - \[corrplot\]<https://github.com/taiyun/corrplot>
-  - \[TCL Trip Data\]<https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page>
-  - \[ggplot2\]<https://ggplot2.tidyverse.org>
-  - \[tidyverse\]<https://doi.org/10.21105/joss.01686>
-  - \[dplyr\]<https://CRAN.R-project.org/package=dplyr>
-  - \[scales\]<https://CRAN.R-project.org/package=scales>
+  - \[alluvial\] <https://github.com/mbojan/alluvial>
+  - \[shinydashboard\] <https://CRAN.R-project.org/package=shinydashboard>
+  - \[shiny\] <https://CRAN.R-project.org/package=shiny>
+  - \[shinythemes\] <https://CRAN.R-project.org/package=shinythemes>
+  - \[leaflet\] <http://www.jstatsoft.org/v40/i03/>
+  - \[stringr\] <https://CRAN.R-project.org/package=stringr>
+  - \[forcats\] <https://CRAN.R-project.org/package=forcats>
+  - \[data.table\] <https://CRAN.R-project.org/package=data.table>
+  - \[maps\] <https://CRAN.R-project.org/package=maps>
+  - \[tibble\] <https://CRAN.R-project.org/package=tibble>
+  - \[geosphere\] <https://CRAN.R-project.org/package=geosphere>
+  - \[plotly\] <https://plotly-r.com>
+  - \[corrplot\] <https://github.com/taiyun/corrplot>
+  - \[TCL Trip Data\] <https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page>
+  - \[ggplot2\] <https://ggplot2.tidyverse.org>
+  - \[tidyverse\] <https://doi.org/10.21105/joss.01686>
+  - \[dplyr\] <https://CRAN.R-project.org/package=dplyr>
+  - \[scales\] <https://CRAN.R-project.org/package=scales>
