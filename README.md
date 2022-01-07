@@ -27,4 +27,4 @@ launch_app()
 
 #### Main page
 
-![Distribution](man/figures/shiny.jpeg)
+![mainpage](man/figures/shiny.png)
