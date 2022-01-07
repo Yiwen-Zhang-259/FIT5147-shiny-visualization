@@ -89,7 +89,7 @@ You can click the link to access to the data source or go to the creator’s Git
 
 The dataset in this package is from:
 
-  - \[alluvial\]\<https://github.com/mbojan/alluvial\>
+  - \[alluvial\]<https://github.com/mbojan/alluvial>
   - \[World Health
     Organization\]<https://www.who.int/emergencies/diseases/novel-coronavirus-2019>
   - \[COVID19 Daily
