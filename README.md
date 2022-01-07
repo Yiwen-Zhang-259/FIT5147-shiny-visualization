@@ -15,6 +15,7 @@ Thank you and have fun !
 ```r
 install.packages(c(“tidyverse”, “plotly”, “shiny”, “shinydashboard”, “ggplot2”, “scales”, “grid”, “corrplot”, “alluvial”, “dplyr”, “readr”, “data.table”, “tibble”, “tidyr”, “stringr”, “forcats”, “lubridate”, “geosphere”, “leaflet”, “maps”, “shinythemes”, “bookdown”))
 ```
+[.white]It should be noted that in order to make “wday” function work normally, please load package [data.table] first and then load package [lubridate]
 
 ### Launch the app
 
