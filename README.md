@@ -37,4 +37,4 @@ You can click the dropdown menus to get contact with creator by email or get sup
 
 And if you want to hide the navigation bar, please just click the button in header, just next to the title.
 
-<img src="man/figures/shiny3.png" alt="logo" width="600"/>
+<img src="man/figures/shiny3.png" alt="logo"/>
