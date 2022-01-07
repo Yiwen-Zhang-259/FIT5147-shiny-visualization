@@ -25,6 +25,6 @@ launch_app()
 
 ### Shiny Application User Interface
 
-Here are the UI of three main subpages:
+#### Main page
 
 ![Distribution](man/figures/distribution.jpeg)
