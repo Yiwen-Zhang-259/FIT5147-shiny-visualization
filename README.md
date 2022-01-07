@@ -20,11 +20,17 @@ _It should be noted that in order to make “wday” function work normally, ple
 ### Launch the app
 
 ``` r
-launch_app()
+Run App
 ```
 
 ### Shiny Application User Interface
 
 #### Main page
 
+Once you have launched this app, it comes to the main page as below.
+
 <img src="man/figures/shiny.png" alt="logo" width="600"/>
+
+You can click the dropdown menus to get contact with creator by email or get support from Gihub. Also, you can zoom in or zoom out to view this distribution map in detail.
+
+<img src="man/figures/shiny1.png" alt="logo" width="250"/><img src="man/figures/shiny2.png" alt="logo" width="250"/>
