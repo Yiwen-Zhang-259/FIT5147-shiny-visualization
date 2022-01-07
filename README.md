@@ -1,8 +1,8 @@
 # Shiny dashboard : Analysis on Taxi Duration in NYC
 
-<img src="man/figures/taxi.jpeg" alt="logo" width="300"/>
-
 ### Creator & Author : Yiwen Zhang
+
+<img src="man/figures/taxi.jpeg" alt="logo" width="300"/>
 
 This is the shiny dashborad for analysis on taxi duration in NYC, hope you can enjoy your exlporation.
 And if there is any error, please feel free to write a github issue. 
