@@ -7,7 +7,7 @@
 This is the shiny dashborad for analysis on taxi duration in NYC, hope you can enjoy your exlporation.
 And if there is any error, please feel free to write a github issue. 
 
-Thank you and have fun !
+Thank you and have fun ! :)
 
 ## User guide
 
@@ -84,7 +84,7 @@ You can click the link to access to the data source or go to the creator’s Git
 
 <img src="man/figures/shiny14.png" alt="logo"/>
 
-*This is all about the guide of exploration in this app. Due to the large amount of data, the display of graphs will be a little slow, please wait for a while when changing to a different page. I have tried my best to improve the running speed by processing the data. Sorry for the inconvenience. Hope you can get something inspired and have fun!*
+*This is all about the guide of exploration in this app. Due to the large amount of data, the display of graphs will be a little slow, please wait for a while when changing to a different page. I have tried my best to improve the running speed by processing the data. Sorry for the inconvenience. Hope you can get something inspired and have fun!* :)
 
 ## Reference
 
