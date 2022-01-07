@@ -33,4 +33,4 @@ Once you have launched this app, it comes to the main page as below.
 
 You can click the dropdown menus to get contact with creator by email or get support from Gihub. Also, you can zoom in or zoom out to view this distribution map in detail.
 
-<img src="man/figures/shiny1.png" alt="logo" width="300"/>  <img src="man/figures/shiny2.png" alt="logo" width="300"/>
+<img src="man/figures/shiny1.png" alt="logo" width="300"/>                  <img src="man/figures/shiny2.png" alt="logo" width="300"/>
