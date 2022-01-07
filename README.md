@@ -1,5 +1,6 @@
 # Shiny dashboard : Analysis on Taxi Duration in NYC
 
+<img src="man/figures/taxi.jpeg" alt="logo" width="300"/>
 
 ### Creator & Author : Yiwen Zhang
 
