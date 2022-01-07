@@ -307,8 +307,8 @@ body <- dashboardBody(
                       "This shiny app is about the analysis on taxi duration in New York City, and provides an overview of the taxi trip distribution in this city.
                        The 'shiny' package could display the interesting findings from previous analysis, which provide an concise way to build interactive web-based apps straight from R.
                        The code behind the dashboard available ",
-                      tags$a(href = "https://github.com/Yiwen-Zhang-259/FIT5147-shiny-visualization", "here"),".
-                       The findings are displayed in a map, figures, and plots.",
+                      tags$a(href = "https://github.com/emitanaka/shinyctv", "here"),".
+                       The findings are displayed in two tables and two plots.",
                       tags$br(),
                       h3("Motivations"),
                       "Taking a taxi is a way of travel that people often choose in daily life, and taxi has become a very important part of urban traffic. When taking a taxi, we are most concerned about the distance and fare. As we all know, the fare increases with the increase of the duration. So I can't help but wonder, apart from geographical factors (the distance between the origin place and the destination), what other factors will affect the taxi duration? So, in this app I will display my findings about this and answer my original research questions:",
