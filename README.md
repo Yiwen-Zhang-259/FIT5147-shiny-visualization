@@ -27,4 +27,4 @@ launch_app()
 
 #### Main page
 
-<img src="man/figures/shiny.png" alt="logo" width="200"/>
+<img src="man/figures/shiny.png" alt="logo" width="500"/>
